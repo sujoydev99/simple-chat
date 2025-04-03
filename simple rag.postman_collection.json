@@ -1,0 +1,347 @@
+{
+	"info": {
+		"_postman_id": "40486935-417f-4470-998f-920eca03533c",
+		"name": "simple rag",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27326900"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"password123\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"user2@example.com\",\n  \"password\": \"password123\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "document",
+			"item": [
+				{
+					"name": "upload",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/sujoydev/Desktop/sample.pdf"
+								},
+								{
+									"key": "name",
+									"value": "sample-doc",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/documents/upload",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"documents",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/sujoydev/Desktop/sample.pdf"
+								},
+								{
+									"key": "name",
+									"value": "sample-doc",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/documents",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"documents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/sujoydev/Desktop/sample.pdf"
+								},
+								{
+									"key": "name",
+									"value": "sample-doc",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/documents/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"documents",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/sujoydev/Desktop/sample.pdf"
+								},
+								{
+									"key": "name",
+									"value": "sample-doc",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/documents?query=Sample PDF",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"documents"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "Sample PDF"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "message",
+			"item": [
+				{
+					"name": "send message",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\":\"The Fundamental Theorem of Arithmetic\",\n    \"role\":\"user\",\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/messages",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "thread",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/sujoydev/Desktop/sample.pdf"
+								},
+								{
+									"key": "name",
+									"value": "sample-doc",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/threads/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"threads",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"    pm.request.headers.add({",
+					"        key: 'Authorization',",
+					"        value: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJ1c2VyMkBleGFtcGxlLmNvbSIsImlhdCI6MTc0MzY2OTQ1NCwiZXhwIjoxNzQzNzU1ODU0fQ.t2a9apnN6408EQCBq7VCgYc492jVcIZmy_TwPTEeUyA`",
+					"    });",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
